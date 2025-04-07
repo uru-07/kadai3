@@ -31,8 +31,28 @@ $(function () {
       // エラーメッセージをセット
       $("#reservation-error").text("予約日は必須項目です。");
     }
-  });
+
+    if ($('input[name="rs"]:checked').length === 0) {
+      // エラーメッセージをセット
+      $("#lesson-error").text("受講形式は必須項目です。");
+    } else {
+      $("#lesson-error").text("");
+    }
+    });
 });
+
+function formSwitch(){
+  var online = document.getElementById('js-checkonline').checked;
+  var item1 = document.getElementById('Box');
+  var item2 = document.getElementById('Box2');
+    if(online){
+      item1.style.display = "block";
+      item2.style.display = "none";
+    } else {
+      item1.style.display = "none"
+      item2.style.display = "block";
+    }
+}
 
   $(document).ready(function() {
     $("#datepicker").datepicker();
